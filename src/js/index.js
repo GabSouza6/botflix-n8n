@@ -26,7 +26,7 @@ async function handleSearch() {
 
   try {
     const response = await fetch(
-      "https://gabrielsouza06.app.n8n.cloud/webhook/botflix",
+      "https://gabrielsouza06.app.n8n.cloud/webhook-test/botflix",
       {
         method: "POST",
         headers: {
@@ -37,12 +37,9 @@ async function handleSearch() {
     );
 
     const data = await response.json();
-    console.log(data);
 
     if (data && data.results && data.results.length > 0) {
       const movie = data.results[0];
-
-      // 👇 usando backdrop_path direto
       const posterUrl = `https://image.tmdb.org/t/p/w500${movie.backdrop_path}`;
 
       const resultsDiv = document.getElementById("results");
